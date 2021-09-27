@@ -6,11 +6,7 @@ const router = express.Router();
 
 router.post('/todo/new', async (req, res) => {
   // const newTodoDetails = req.body;
-
-  const newTodoDetails = {
-    title: 'Go to park',
-  };
-  const newTodo = new TodoData(newTodoDetails);
+  const newTodo = new TodoData(req.body);
 
   try {
     const creatingNewTodoResult = await newTodo.save();
