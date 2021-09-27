@@ -1,0 +1,11 @@
+.add-todo-container i {
+  margin-right: 0.5em;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+.add-todo-container input {
+  font-size: 1em;
+  line-height: 1.5;
+  padding: 0.1em;
+}
