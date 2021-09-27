@@ -18,4 +18,11 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.status(200).json(`Server works at port ${PORT}`);
+});
+
+const todoRoutes = require('./server/Routes/TodoRoutes');
+app.use('/', todoRoutes);
+
 app.listen(PORT, console.log(`server running on port ${PORT}`));
