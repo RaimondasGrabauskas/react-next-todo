@@ -27,7 +27,9 @@ const Todo = () => {
   return (
     <div className={css.todo}>
       <HeaderTodo />
-      <TodoList />
+      <TodoList 
+        onTodos={todos}
+      />
       <AddTodo />
     </div>
   )

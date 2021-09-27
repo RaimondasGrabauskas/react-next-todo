@@ -1,10 +1,16 @@
 import css from './TodoList.module.css';
 import TodoElement from './../todoElement/TodoElement';
 
-const TodoList = () => {
+const TodoList = ({onTodos}) => {
   return (
     <ul className={css['todo-list']}>
-        <TodoElement />
+      {onTodos.map((todo) => (
+        <TodoElement 
+          key={todo._id}
+          todo={todo}
+        />
+      )
+    )}
     </ul>
   )
 }
