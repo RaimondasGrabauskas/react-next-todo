@@ -3,24 +3,19 @@ import HeaderTodo from '../appHeader/HeaderTodo';
 import TodoList from './../todoList/TodoList';
 import AddTodo from './../addTodo/AddTodo';
 import { useEffect, useState } from 'react';
-import { getAllTodos } from './../../utils/request';
+import { createTodo, getAllTodos } from './../../utils/request';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTodos } from '../../store/todoRedux';
 
 
 const Todo = () => {
+  const dispatch = useDispatch();
+  const todos = useSelector((state) => state.todos.todos);
 
-  const [todos, setTodos] = useState([]);
 
   useEffect(() => {
     // IIFE
-   (async () => {
-     try {
-       const data = await getAllTodos();
-       if (!data) throw new Error('No data came back from request');
-       setTodos(data);
-     } catch (err) {
-       console.log(err)
-     }
-   })()
+    dispatch(getTodos());
   }, []);
 
   console.log(todos);
