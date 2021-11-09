@@ -15,9 +15,6 @@ const TodoElement = ({todo}) => {
   }
 
   const handleChangeInputValue = (e) => {
-  
-    // const newInputValueCopy = (' ' + newTitle).slice(1);
-    // newInputValueCopy[e.target.name] = e.target.value;
     setNewTitle(e.target.value);
   }
 
@@ -41,7 +38,7 @@ const TodoElement = ({todo}) => {
 
   useEffect(() => {
     setNewTitle(todo.title);
-  },[])
+  },[todo.title])
 
 
   

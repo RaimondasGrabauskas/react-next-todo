@@ -2,21 +2,21 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const getAllTodoUrl = 'http://localhost:4000/todos';
-const addTodoUrl = 'http://localhost:4000/todo/new';
-
 export const getTodos = createAsyncThunk('todos/getTodos', async () => {
-  const response = await axios.get(getAllTodoUrl);
-  return response.data;
+  try {
+    const response = await axios.get(getAllTodoUrl);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
 });
-
-export const addTodo = createAsyncThunk('todos/addTodo');
 
 const initialState = { todos: [], status: null };
 const todoSlice = createSlice({
   name: 'todos',
   initialState,
   reducers: {
-    addTodo(state, action) {
+    addTodoSample(state, action) {
       state.todos.push(action.payload);
     },
   },

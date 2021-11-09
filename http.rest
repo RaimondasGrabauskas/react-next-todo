@@ -4,3 +4,7 @@ Content-Type: 'application/json
 
 ### all Todo
 GET  http://localhost:4000/todos
+
+### delete
+
+DELETE http://localhost:4000/todo/delete/618516dd249c6c7e9df6c1ff
