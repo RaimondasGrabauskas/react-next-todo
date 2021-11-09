@@ -50,4 +50,31 @@ router.put('/todo/update/:id', async (req, res) => {
     res.status(500).json(error);
   }
 });
+
+// toggle is done todo
+
+router.put('/todo/isDone/:id', async (req, res) => {
+  const updateTodoId = req.params.id;
+  const detailsToUpdate = req.body;
+  try {
+    const updateResult = await TodoData.findByIdAndUpdate(updateTodoId, detailsToUpdate);
+    res.json(updateResult);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+// favorite todo
+
+router.put('/todo/isFavorite/:id', async (req, res) => {
+  const updateTodoId = req.params.id;
+  const detailsToUpdate = req.body;
+  try {
+    const updateResult = await TodoData.findByIdAndUpdate(updateTodoId, detailsToUpdate);
+    res.json(updateResult);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 module.exports = router;
