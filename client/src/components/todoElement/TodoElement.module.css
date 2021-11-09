@@ -7,6 +7,9 @@
   cursor: pointer;
 }
 
+.app-todo-el i:first-child {
+  margin-left: 5px;
+}
 .app-todo-el i:last-child {
   float: right;
 }
