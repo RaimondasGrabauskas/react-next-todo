@@ -33,8 +33,6 @@ export const deleteTodo = async (todoId) => {
 // update todo
 
 export const updateTodo = async (todoId, detailsToUpdate) => {
-  console.log('detailsToUpdate', detailsToUpdate);
-
   try {
     const updateResult = await axios.put(updateTodoUrl + '/' + todoId, detailsToUpdate);
     return updateResult.data;
