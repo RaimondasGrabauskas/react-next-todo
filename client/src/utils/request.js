@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 // url
-
-const createTodoUrl = 'http://localhost:4000/todo/new';
-const deleteTodoUrl = 'http://localhost:4000/todo/delete';
-const updateTodoUrl = 'http://localhost:4000/todo/update';
-const updateIsDoneUrl = 'http://localhost:4000/todo/isDone';
-const updateIsFavoriteUrl = 'http://localhost:4000/todo/isFavorite';
+const url = 'http://localhost:4000/todo/';
+const createTodoUrl = url + 'new';
+const deleteTodoUrl = url + 'delete';
+const updateTodoUrl = url + 'update';
+const updateIsDoneUrl = url + 'isDone';
+const updateIsFavoriteUrl = url + 'isFavorite';
 
 // post todo
 

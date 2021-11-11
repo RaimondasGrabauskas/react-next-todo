@@ -10,7 +10,6 @@ import { getTodos } from '../../store/todoRedux';
 const Todo = () => {
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.todos.todos);
-  
   useEffect(() => {
     dispatch(getTodos());
   }, [dispatch]);

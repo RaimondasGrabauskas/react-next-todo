@@ -20,22 +20,18 @@ const AddTodo = () => {
     const newTodoDetail = {
       title: inputValue,
     };
-    validation(newTodoDetail.title);
-    const successCreated = await createTodo(newTodoDetail);
-    if (successCreated) {
-      dispatch(getTodos());
+    const successValidation = validated(newTodoDetail.title);
+    if (successValidation) {
+      const successCreated = await createTodo(newTodoDetail);
+      successCreated && dispatch(getTodos());
     }
     clearInput();
   }
 
-  const validation = (value) => {
-    if (value === '') {
-      setFormErrors(true);
-      return;
-    }
-    if (value !== '') {
-      setFormErrors(false);
-    }
+  const validated = (value) => {
+    const failValidation = value.trim() === '';
+    setFormErrors(failValidation);
+    return !failValidation;
   }
 
  

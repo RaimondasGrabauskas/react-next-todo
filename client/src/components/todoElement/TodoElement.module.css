@@ -5,17 +5,18 @@
 
 .app-todo-el i {
   cursor: pointer;
+  float: right;
 }
 
-.app-todo-el i:first-child {
-  margin-left: 5px;
+/* .app-todo-el i:first-child {
+  float: right;
 }
 .app-todo-el i:last-child {
   float: right;
 }
 .app-todo-el i:nth-last-child(2) {
   float: right;
-}
+} */
 
 .doneTitle {
   text-decoration: line-through;

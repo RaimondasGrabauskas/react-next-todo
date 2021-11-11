@@ -12,6 +12,7 @@ const TodoElement = ({todo}) => {
 
 
   const handleIsEditOn = () => {
+    if (todo.isDone) return;
     setIsEditOn(!isEditOn);
   }
 
@@ -30,6 +31,7 @@ const TodoElement = ({todo}) => {
     const editDetails = {
       title: newTitle,
     };
+   
     const updateSuccess = await updateTodo(id, editDetails);
     if (updateSuccess) {
       dispatch(getTodos());
@@ -61,16 +63,16 @@ const TodoElement = ({todo}) => {
     setNewTitle(todo.title);
   },[todo.title])
 
-
+ 
   
   return (
     <li className={css['app-todo-el']}>
       {isEditOn && <input value={newTitle} onChange={handleChangeInputValue} name='newTitle'/>}
-      {isEditOn && <i className="fa fa-pencil" onClick={() => editTodo(todo._id)}></i>}
       {!isEditOn && <span className={todo.isDone ? css.doneTitle : ''} onClick={() => toggleIsDone(todo._id)}>{todo.title}</span>}
-      {!isEditOn && <i className="fa fa-pencil" onClick={handleIsEditOn}></i>}
       <i onClick={() => deleteTodoItem(todo._id)} className="fa fa-trash"></i>
       <i onClick={() => toggleIsFavoriteTodo(todo._id)} className={todo.isFavorite ? "fa fa-star " + css.isFavorite : "fa fa-star"}></i>
+      {isEditOn && <i className="fa fa-pencil" onClick={() => editTodo(todo._id)}></i>}
+      {!isEditOn && <i className="fa fa-pencil" onClick={handleIsEditOn}></i>}
     </li>
   )
 }
