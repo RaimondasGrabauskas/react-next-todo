@@ -7,7 +7,7 @@ import { getTodos } from './../../store/todoRedux';
 const AddTodo = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState('');
-  
+  const [formErrors, setFormErrors] = useState(false);
   const handleInput = (e) => {
     setInputValue(e.target.value);
   }
@@ -20,12 +20,25 @@ const AddTodo = () => {
     const newTodoDetail = {
       title: inputValue,
     };
+    validation(newTodoDetail.title);
     const successCreated = await createTodo(newTodoDetail);
     if (successCreated) {
       dispatch(getTodos());
     }
     clearInput();
   }
+
+  const validation = (value) => {
+    if (value === '') {
+      setFormErrors(true);
+      return;
+    }
+    if (value !== '') {
+      setFormErrors(false);
+    }
+  }
+
+ 
 
   return (
     <div className={css['add-todo-container']}>
@@ -36,6 +49,7 @@ const AddTodo = () => {
           value={inputValue}
           onChange={handleInput}
         />
+        {formErrors && <p>Input Field is required</p>}
       </div>
   )
 }
